@@ -17,4 +17,26 @@ function getHumanChoice () {
     return "Not an expected value"
 }
 
-console.log(getHumanChoice());
+let humanScore = 0
+let ComputerScore = 0
+
+function playRound() {
+    let human = getHumanChoice();
+    let computer = getComputerChoice();
+
+    if (human === computer) {
+        return "Tie game!";
+    }
+
+    if (
+        (human === "rock" && computer === "scissors") ||
+        (human === "paper" && computer === "rock") ||
+        (human === "scissors" && computer === "paper")
+    ) {
+        return "You win! " + human + " beats " + computer;
+    }
+
+    return "You lose! " + computer + " beats " + human;
+}
+
+console.log(playRound());
