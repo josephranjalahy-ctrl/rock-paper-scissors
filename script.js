@@ -46,3 +46,15 @@ function playRound() {
     return "You won! Scissors beats paper";
 }
 }
+
+function playGame () {
+  for (let i = 0; i < 5; i++) {
+    playRound();
+  }
+
+  if (humanScore > computerScore) return "You won!";
+  if (humanScore == computerScore) return "Tie game!";
+  else return "CPU won!";
+  }
+
+console.log(playGame());
