@@ -1,5 +1,3 @@
-console.log("Hello World!");
-
 function getComputerChoice() {
   let result = Math.floor((Math.random()) * 3);
 
@@ -17,19 +15,34 @@ function getHumanChoice() {
   else return "Not a valid answer";
 }
 
-// Same, but in a switch statement
+let humanScore = 0;
+let computerScore = 0;
 
-// function getHumanChoice() {
-  // let answer = prompt("Enter a value");
+function playRound() {
+  let humanChoice = getHumanChoice();
+  let computerChoice = getComputerChoice();
 
-  // switch (answer) {
-    // case "rock":
-      // return "rock";
-    // case "paper":
-      // return "paper";
-    // case "scissors":
-      // return "scissors";
-    // default:
-      // return "Not a valid answer";
-  // }
-// }
+  if (humanChoice == computerChoice) return "Tie game!";
+
+  if (humanChoice == "rock" && computerChoice == "paper") {
+    computerScore++;
+    return "You lose! Paper beats rock";
+  }
+  if (humanChoice == "paper" && computerChoice == "rock") {
+    humanScore++;
+    return "You won! Paper beats rock";
+  }
+  if (humanChoice == "rock" && computerChoice == "scissors") {
+    humanScore++;
+    return "You won! Rock beats scissors";
+  }
+  if (humanChoice == "scissors" && computerChoice == "rock") {
+    computerScore++;
+    return "You lose! Scissors beats rock";
+  }
+
+  else {
+    humanScore++;
+    return "You won! Scissors beats paper";
+}
+}
